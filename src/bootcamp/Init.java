@@ -29,7 +29,7 @@ public class Init {
 				"  `id` INT NOT NULL AUTO_INCREMENT,\n" + 
 				"  `name` VARCHAR(45) NULL,\n" + 
 				"  PRIMARY KEY (`id`));\n"; 
-//				"ENGINE = InnoDB;\n"; 
+
 		query[1]=
 				"CREATE TABLE IF NOT EXISTS `Kat_workshop_BIS`.`users` (\n" + 
 				"  `id` BIGINT NOT NULL AUTO_INCREMENT,\n" + 
@@ -38,20 +38,17 @@ public class Init {
 				"  `password` VARCHAR(255) NULL,\n" + 
 				"  `person_group_id` INT NOT NULL,\n" + 
 				"  PRIMARY KEY (`id`),\n" + 
-//				"  INDEX `fk_users_user_group_idx` (`person_group_id` ASC),\n" + 
-//				"  CONSTRAINT `fk_users_user_group`\n" + 
+
 				"    FOREIGN KEY (`person_group_id`)\n" + 
 				"    REFERENCES `Kat_workshop_BIS`.`user_group` (`id`));\n" ; 
-//				"    ON DELETE NO ACTION\n" + 
-//				"    ON UPDATE NO ACTION)\n" + 
-//				"ENGINE = InnoDB;\n";
+
 		query[2]= 
 				"CREATE TABLE IF NOT EXISTS `Kat_workshop_BIS`.`exercise` (\n" + 
 				"  `id` INT NOT NULL AUTO_INCREMENT,\n" + 
 				"  `title` VARCHAR(255) NULL,\n" + 
 				"  `description` VARCHAR(45) NULL,\n" + 
 				"  PRIMARY KEY (`id`));\n";
-//				"ENGINE = InnoDB;\n"; 
+ 
 			
 		query[3]=
 				"CREATE TABLE IF NOT EXISTS `Kat_workshop_BIS`.`solution` (\n" + 
@@ -62,19 +59,12 @@ public class Init {
 				"  `users_id` BIGINT NOT NULL,\n" + 
 				"  `exercise_id` INT NOT NULL,\n" + 
 				"  PRIMARY KEY (`id`),\n" + 
-//				"  INDEX `fk_solution_users1_idx` (`users_id` ASC),\n" + 
-//				"  INDEX `fk_solution_exercise1_idx` (`exercise_id` ASC),\n" + 
-//				"  CONSTRAINT `fk_solution_users1`\n" + 
 				"    FOREIGN KEY (`users_id`)\n" + 
 				"    REFERENCES `Kat_workshop_BIS`.`users` (`id`),\n" + 
-//				"    ON DELETE NO ACTION\n" + 
-//				"    ON UPDATE NO ACTION,\n" + 
-//				"  CONSTRAINT `fk_solution_exercise1`\n" + 
+ 
 				"    FOREIGN KEY (`exercise_id`)\n" + 
 				"    REFERENCES `Kat_workshop_BIS`.`exercise` (`id`));\n"; 
-//				"    ON DELETE NO ACTION\n" + 
-//				"    ON UPDATE NO ACTION)\n" + 
-//				"ENGINE = InnoDB;\n"; 
+
 	
 
 			for(String q : query) {
